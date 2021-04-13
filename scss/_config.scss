@@ -1,0 +1,25 @@
+//this is a partial and not to be compiled on it's own. We tell it this by adding the "_" at the beginning
+
+//import on the scss file
+
+$lightcolor: #f4f4f4;
+$font-stack: Arial, Helvetica, sans-serif;
+$primary-color: #0e6cff;
+$secondary-color: #ff8700;
+
+//Set tet color based on background
+
+@function set-text-color($color){
+    @if(lightness($color) > 70){
+        @return #333;
+    } @else {
+        @return #fff;
+    }
+}
+
+// Set background & text color
+
+@mixin set-background($color){
+    background-color: $color;
+    color: set-text-color($color);
+}
